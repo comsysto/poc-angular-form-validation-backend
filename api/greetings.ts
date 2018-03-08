@@ -3,7 +3,6 @@
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  */
 import { Router } from 'express';
-import * as path from 'path';
 import { I18nAwareRequest } from '../i18n/i18n-handler';
 export const greetingsRouter = Router();
 

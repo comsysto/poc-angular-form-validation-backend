@@ -9,6 +9,7 @@ import * as errorhandler from 'errorhandler';
 import * as express from 'express';
 import * as morgan from 'morgan';
 import * as path from 'path';
+import { isNullOrUndefined } from 'util';
 import { apiRouter } from './api/api';
 import { i18nMiddleware } from './i18n/i18n-handler';
 
@@ -20,7 +21,7 @@ app.use(i18nMiddleware);
 // Parse application/json
 app.use(bodyParser.json());
 // Logging Middleware
-app.use(morgan('dev'));
+if (isNullOrUndefined(process.env.IS_TEST_RUN)) { app.use(morgan('dev')); }
 // Enable CORS
 app.use(cors());
 // Serve API

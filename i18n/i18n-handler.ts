@@ -11,6 +11,7 @@ import * as fs from 'fs';
 import * as dotize from 'dotize';
 import IntlMessageFormat from 'intl-messageformat';
 import { Request } from 'express';
+import { isNullOrUndefined } from 'util';
 
 //
 // LOAD MESSAGES (once) 
@@ -32,7 +33,7 @@ const getMessageByLocale = (i18nKey: string, locale: string) => {
 export const i18nMiddleware = (req, res, next) => {
   const reqLocale = req.get('Accept-Language');
   let selectedLocale = 'en';
-  if (reqLocale.startsWith('de')) {
+  if (!isNullOrUndefined(reqLocale) && reqLocale.startsWith('de')) {
     selectedLocale = 'de';
   }
   res.set('Content-Language', selectedLocale);

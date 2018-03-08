@@ -3,6 +3,7 @@
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  */
 process.env.PORT = '5001';
+process.env.IS_TEST_RUN = 'true';
 import 'tartare';
 import { expect } from 'chai';
 import * as request from 'supertest';
@@ -26,7 +27,7 @@ feature('Addition', function() {
      response = await request(app).post('/api/tickets').send(newTicket).expect(204);
     });
     then('the result should valid', function() {
-      console.log(response.body)
+      //expect(response.body.message).to.eq('Hello Good Day');
     });
   });
 });

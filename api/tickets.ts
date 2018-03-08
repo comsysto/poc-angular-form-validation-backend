@@ -12,7 +12,7 @@ export const ticketsRouter = Router();
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
 
 ticketsRouter.get('/', (req, res, next) => {
-  res.status(200)
+  res.send('ok').status(200)
 });
 
 ticketsRouter.post('/', (req, res, next) => {
