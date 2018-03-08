@@ -16,8 +16,8 @@ import { Request } from 'express';
 // LOAD MESSAGES (once) 
 //
 const messages: any[] = [];
-messages['en'] = dotize.convert(JSON.parse(fs.readFileSync(path.resolve(__dirname + '/../i18n/en.json'), 'utf8')));
-messages['de'] = dotize.convert(JSON.parse(fs.readFileSync(path.resolve(__dirname + '/../i18n/de.json'), 'utf8')));
+messages['en'] = dotize.convert(JSON.parse(fs.readFileSync(path.resolve(__dirname + '/en.json'), 'utf8')));
+messages['de'] = dotize.convert(JSON.parse(fs.readFileSync(path.resolve(__dirname + '/de.json'), 'utf8')));
 const getMessageByLocale = (i18nKey: string, locale: string) => {
   let _locale = locale;
   if (locale !== 'de' && locale !== 'en') {
