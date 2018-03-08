@@ -168,7 +168,7 @@ Deployed to heroku on master-branch Push
 Initially disable heroku node_modules cache:
 
 ```
-heroku config:set NODEMODULESCACHE=false --app poc-angular-form-validation
+heroku config:set NODE_MODULES_CACHE=false --app poc-angular-form-validation
 ```
 
 &nbsp;
