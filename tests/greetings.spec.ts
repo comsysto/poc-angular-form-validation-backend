@@ -3,7 +3,6 @@
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  */
 process.env.PORT = '5002';
-process.env.IS_TEST_RUN = 'true';
 import 'tartare';
 import { expect } from 'chai';
 import * as request from 'supertest';

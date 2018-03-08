@@ -5,7 +5,7 @@
   "validation": {
     "generic": {
       "minLength": "Muss mindestens {length} Zeichen lang sein.",
-      "maxLentgh": "Darf maximal {length} Zeichen lang sein.",
+      "maxLength": "Darf maximal {length} Zeichen lang sein.",
       "required": "Muss angegeben werden."
     },
     "ticket": {

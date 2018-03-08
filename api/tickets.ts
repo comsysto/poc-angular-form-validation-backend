@@ -62,8 +62,8 @@ const ticketValidationRules: FieldValidationRule[] = [
     validations: [
       {
         type: 'minLength',
-        message: (i18n) => i18n('validation.generic.minLength', { length: 10 }),
-        length: 10
+        message: (i18n) => i18n('validation.generic.minLength', { length: 3 }),
+        length: 3
       } as ValidationRuleMinMaxLength,
       {
         type: 'maxLength',
@@ -74,16 +74,40 @@ const ticketValidationRules: FieldValidationRule[] = [
   }
 ];
 
-
+//
+// VALIDATION CHECK
+//
 const validateCreateTicket = (ticket: Ticket, i18n: Function): ValidationError[] => {
   const errors: ValidationError[] = [];
-
   for (let fieldValidationRule of ticketValidationRules) {
     for (let validationRule of fieldValidationRule.validations) {
       if (validationRule.type === 'pattern') {
         const patternRule = validationRule as ValidationRulePattern;
         const regex = new RegExp(patternRule.pattern);
         if (!regex.test(ticket[fieldValidationRule.field])) {
+          errors.push(new ValidationError(
+            fieldValidationRule.field,
+            validationRule.type,
+            validationRule.message(i18n)));
+        }
+      }
+
+      if (validationRule.type === 'minLength' || validationRule.type === 'maxLength') {
+        const lengthRule = validationRule as ValidationRuleMinMaxLength;
+        if (!isNullOrUndefined(ticket[fieldValidationRule.field])) {
+          if (validationRule.type === 'minLength' && ticket[fieldValidationRule.field].length < lengthRule.length ||
+              validationRule.type === 'maxLength' && ticket[fieldValidationRule.field].length > lengthRule.length) {
+                errors.push(new ValidationError(
+                  fieldValidationRule.field,
+                  validationRule.type,
+                  validationRule.message(i18n)));
+          }
+        }
+      }
+      if (validationRule.type === 'required') {
+        const requiredRule = validationRule;
+        if (isNullOrUndefined(ticket[fieldValidationRule.field]) ||
+            !isNullOrUndefined(ticket[fieldValidationRule.field]) && ticket[fieldValidationRule.field].length === 0) {
           errors.push(new ValidationError(
             fieldValidationRule.field,
             validationRule.type,
