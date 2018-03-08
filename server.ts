@@ -2,15 +2,16 @@
  * @license MIT
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  */
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const errorhandler = require('errorhandler');
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
-const apiRouter = require('./api/api');
 
-const app = express();
+import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
+import * as errorhandler from 'errorhandler';
+import * as express from 'express';
+import * as morgan from 'morgan';
+import * as path from 'path';
+import { apiRouter } from './api/api';
+
+export const app = express();
 const PORT = process.env.PORT || 5000;
 
 
@@ -39,6 +40,3 @@ app.use(errorhandler());
 app.listen(PORT, () => {
   console.log('Listening on port: ' + PORT);
 });
-
-// Export app
-module.exports = app;

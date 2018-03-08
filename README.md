@@ -115,6 +115,37 @@ Deployed to heroku on master-branch Push
 
  * https://poc-angular-form-validation.herokuapp.com/
 
+&nbsp;
+
+
+### Development
+
+**Quickstart:**
+
+```bash
+https://github.com/comsysto/poc-angular-form-validation-backend
+poc-angular-form-validation-backend
+yarn install
+
+yarn start
+```
+
+Now server is running on http://localhost:5000/
+
+&nbsp;
+
+**Run API-Tests:**
+
+```
+yarn test
+```
+
+&nbsp;
+
+**Editor/IDE**
+
+At best use [Visual Studio Code](https://code.visualstudio.com/) since it has great TypeScript support.
+Do not forget to install https://github.com/editorconfig/editorconfig-vscode `ext install EditorConfig`.
 
 &nbsp;
 

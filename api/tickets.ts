@@ -2,9 +2,8 @@
  * @license MIT
  * Copyright (c) 2017 - 2018 Bernhard Grünewaldt
  */
-
-const express = require('express');
-const ticketsRouter = express.Router();
+import * as express from 'express';
+export const ticketsRouter = express.Router();
 
 
 //
@@ -14,7 +13,6 @@ ticketsRouter.get('/', (req, res, next) => {
   res.json({ ok: 'ok' });
 });
 
-//
-// Export
-//
-module.exports = ticketsRouter;
+ticketsRouter.post('/', (req, res, next) => {
+  res.status(204).json({ ok: 'ok' });
+});
