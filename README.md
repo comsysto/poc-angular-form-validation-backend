@@ -96,25 +96,6 @@ The **Validation Rule Information** provided by the backend for `locale=de` woul
 }
 ```
 
-&nbsp;
-
-**Backend Requirements**
-
- * App should be translatable via platforms like https://phraseapp.com/ or https://crowdin.com/
-   * That means we need to have JSON translation files.
- * Support english and german
- * Create Tickets and validate structure
-
-&nbsp;
-
-**Backend Features**
-
- * provide REST-API Endpoint to create *Tickets* 
- * validate *Tickets* and return `HTTP 420 with detailed errors
- * provide REST-API Endpoint to describe validation rules
- * provide i18n messages for german and english 
-
-
    
 &nbsp;
 
