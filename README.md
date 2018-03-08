@@ -109,7 +109,7 @@ TBD
 
 ##### /api/greetings
 
-The Greetings endpoint work with the `Accept-Language` Request Header. The selected locale is communicated back with the `Content-Language` Response Header.
+The Greetings endpoint works with the [`Accept-Language`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language) Request Header. The selected locale is communicated back with the `Content-Language` Response Header.
 
 Greetings in english:
 
