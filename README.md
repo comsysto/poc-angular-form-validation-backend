@@ -107,6 +107,56 @@ The **Validation Rule Information** provided by the backend for `locale=de` woul
 TBD
 
 
+##### /api/greetings
+
+The Greetings endpoint work with the `Accept-Language` Request Header. The selected locale is communicated back with the `Content-Language` Response Header.
+
+Greetings in english:
+
+```
+curl -s -i -H "Accept-Language: en" https://poc-angular-form-validation.herokuapp.com/api/greetings/
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Language: en
+Content-Type: application/json; charset=utf-8
+
+{"status":200,"message":"Hello Good Day"}
+```
+
+&nbsp;
+
+Greetings in german:
+
+```
+curl -s -i -H "Accept-Language: de" https://poc-angular-form-validation.herokuapp.com/api/greetings/
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Language: de
+Content-Type: application/json; charset=utf-8
+
+{"status":200,"message":"Guten Tag! Wollen Sie das Schnitzel?"}
+```
+
+&nbsp;
+
+Greetings for japanese (or any other unknown locale) default to english:
+
+```
+curl -s -i -H "Accept-Language: jp" https://poc-angular-form-validation.herokuapp.com/api/greetings/
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Language: en
+Content-Type: application/json; charset=utf-8
+
+{"status":200,"message":"Hello Good Day"}
+```
+
 &nbsp;
 
 ### Deployment

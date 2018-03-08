@@ -1,5 +1,3 @@
 {
-  "form": {
-    "foo": "bar"
-  }
+	"greetings.hello": "Hello Good Day"
 }

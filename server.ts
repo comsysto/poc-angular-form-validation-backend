@@ -10,7 +10,6 @@ import * as express from 'express';
 import * as morgan from 'morgan';
 import * as path from 'path';
 import { apiRouter } from './api/api';
-
 export const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -23,7 +22,6 @@ app.use(morgan('dev'));
 app.use(cors());
 // Serve API
 app.use('/api', apiRouter);
-
 
 // Serve a index.html
 app.get('/', (req, res, next) => {
