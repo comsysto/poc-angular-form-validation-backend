@@ -1,0 +1,25 @@
+{
+  "name": "poc-angular-form-validation-backend",
+  "version": "1.0.0",
+  "description": "Proof of Concept of ServerSide Form Validation with i18n and Angular Frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha",
+    "test:debug": "DEBUG=1 mocha"
+  },
+  "author": "Bernhard Grünewaldt",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.0",
+    "supertest": "^3.0.0"
+  }
+}
