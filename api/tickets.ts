@@ -123,7 +123,17 @@ const validateCreateTicket = (ticket: Ticket, i18n: Function): ValidationError[]
 // ROUTES /api/tickets
 //
 ticketsRouter.get('/', (req, res, next) => {
-  res.send('ok').status(200)
+  res.setHeader('Content-Type', 'application/json');
+  res.send(
+    ticketValidationRules.map(r => {
+      const _r = Object.assign({}, r) as any;
+      _r.validations = r.validations.map(v => {
+        const _v = Object.assign({}, v) as any;
+        _v.message = v.message(req.i18n);
+        return _v;
+      });
+      return _r;
+  })).status(200);
 });
 
 ticketsRouter.post('/', (req, res, next) => {
