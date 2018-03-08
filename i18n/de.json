@@ -1,3 +1,5 @@
 {
-	"greetings.hello": "Guten Tag! Wollen Sie das Schnitzel?"
+	"greetings": {
+		"hello": "Guten Tag! Wollen Sie das Schnitzel?"
+	}
 }

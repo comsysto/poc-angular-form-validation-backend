@@ -1,3 +1,5 @@
 {
-	"greetings.hello": "Hello Good Day"
+	"greetings": {
+		"hello": "Hello Good Day"
+	}
 }

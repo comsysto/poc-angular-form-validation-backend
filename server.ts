@@ -10,10 +10,13 @@ import * as express from 'express';
 import * as morgan from 'morgan';
 import * as path from 'path';
 import { apiRouter } from './api/api';
+import { i18nMiddleware } from './i18n/i18n-handler';
+
 export const app = express();
 const PORT = process.env.PORT || 5000;
 
-
+// Init i18n
+app.use(i18nMiddleware);
 // Parse application/json
 app.use(bodyParser.json());
 // Logging Middleware
@@ -31,7 +34,7 @@ app.get('/favicon.png', (req, res, next) => {
   res.sendFile(path.resolve(__dirname, './public/favicon.png'));
 });
 
-// Enable Errorhandler
+// Enable Errorhandler (must be last!)
 app.use(errorhandler());
 
 // Start Server listening

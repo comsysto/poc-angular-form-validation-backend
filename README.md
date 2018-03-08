@@ -18,7 +18,7 @@ We want to achieve the following:
  * For both cases we need i18n error messages and an easy way to describe Form Validations.
  * We want separation of concerns for i18n - meaning: Backend translates backend stuff, Frontend translates frontend stuff.
  * We want to support translation platforms like https://phraseapp.com/ or https://crowdin.com/.
- 
+ * Use https://formatjs.io/ compatible Intl implementation e.g. [Intl MessageFormat](https://github.com/yahoo/intl-messageformat)
 
 
 &nbsp;
