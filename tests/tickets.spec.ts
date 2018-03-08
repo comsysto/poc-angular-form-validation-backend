@@ -50,11 +50,11 @@ feature('Ticket Validation', function() {
       response = await request(app)
         .post('/api/tickets')
         .set('Accept-Language', acceptLanguageHeader)
-        .send(newTicket).expect(420);
+        .send(newTicket).expect(400);
     });
     then('the result should have a valid with german message', function() {
       expect(response.get('Content-Language')).to.eq('de');
-      expect(response.body.status).to.eq(420);
+      expect(response.body.status).to.eq(400);
       expect(response.body.errors).to.be.not.null;
       expect(response.body.errors.length).to.eq(1);
       expect(response.body.errors[0].message).to.eq('Muss mit 1-5 Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen.');
@@ -80,11 +80,11 @@ feature('Ticket Validation', function() {
       response = await request(app)
         .post('/api/tickets')
         .set('Accept-Language', acceptLanguageHeader)
-        .send(newTicket).expect(420);
+        .send(newTicket).expect(400);
     });
     then('the result should have a valid with english message', function() {
       expect(response.get('Content-Language')).to.eq('en');
-      expect(response.body.status).to.eq(420);
+      expect(response.body.status).to.eq(400);
       expect(response.body.errors).to.be.not.null;
       expect(response.body.errors.length).to.eq(1);
       expect(response.body.errors[0].message).to.eq('Must begin with 1-5 capital letters followed by a dash, followed by numbers.');
@@ -111,11 +111,11 @@ feature('Ticket Validation', function() {
       response = await request(app)
         .post('/api/tickets')
         .set('Accept-Language', acceptLanguageHeader)
-        .send(newTicket).expect(420);
+        .send(newTicket).expect(400);
     });
     then('the result should have a valid with english message', function() {
       expect(response.get('Content-Language')).to.eq('en');
-      expect(response.body.status).to.eq(420);
+      expect(response.body.status).to.eq(400);
       expect(response.body.errors).to.be.not.null;
       expect(response.body.errors.length).to.eq(1);
       expect(response.body.errors[0].message).to.eq('Must be at least 3 characters long');
@@ -141,11 +141,11 @@ feature('Ticket Validation', function() {
       response = await request(app)
         .post('/api/tickets')
         .set('Accept-Language', acceptLanguageHeader)
-        .send(newTicket).expect(420);
+        .send(newTicket).expect(400);
     });
     then('the result should have a valid with english message', function() {
       expect(response.get('Content-Language')).to.eq('en');
-      expect(response.body.status).to.eq(420);
+      expect(response.body.status).to.eq(400);
       expect(response.body.errors).to.be.not.null;
       expect(response.body.errors.length).to.eq(1);
       expect(response.body.errors[0].message).to.eq('Cannot be longer than 250 characters.');
@@ -171,11 +171,11 @@ feature('Ticket Validation', function() {
       response = await request(app)
         .post('/api/tickets')
         .set('Accept-Language', acceptLanguageHeader)
-        .send(newTicket).expect(420);
+        .send(newTicket).expect(400);
     });
     then('the result should have a valid with english message', function() {
       expect(response.get('Content-Language')).to.eq('en');
-      expect(response.body.status).to.eq(420);
+      expect(response.body.status).to.eq(400);
       expect(response.body.errors).to.be.not.null;
       expect(response.body.errors.length).to.eq(2);
       expect(response.body.errors[1].message).to.eq('Is required.');

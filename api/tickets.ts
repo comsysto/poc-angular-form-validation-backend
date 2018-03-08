@@ -122,7 +122,7 @@ const validateCreateTicket = (ticket: Ticket, i18n: Function): ValidationError[]
 //
 // ROUTES /api/tickets
 //
-ticketsRouter.get('/', (req, res, next) => {
+ticketsRouter.get('/validation_rules', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(
     ticketValidationRules.map(r => {
@@ -136,11 +136,12 @@ ticketsRouter.get('/', (req, res, next) => {
   })).status(200);
 });
 
+
 ticketsRouter.post('/', (req, res, next) => {
   const errors = validateCreateTicket(req.body, req.i18n);
   if (errors.length > 0) {
-    res.status(420).json({
-      status: 420,
+    res.status(400).json({
+      status: 400,
       message: 'invalid ticket',
       errors: errors,
     });

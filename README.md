@@ -79,12 +79,99 @@ The **Validation Rule Information** provided by the backend for `locale=de` woul
 ### API Doc
 
 
-**POST /api/tickets/**
+#### :cyclone: POST /api/tickets/
 
-TBD
+Create a ticket. Returns HTTP 204 on success and HTTP 400 on validation Error.
+
+Valid Ticket with english locale:
+
+```
+curl -s -i -H "Accept-Language: en" \
+     -H "Content-Type: application/json" \
+     -X POST -d '{"id": "CSTO-1620", "summary": "I need a new mail account", "description": "foo", "reporter": "Jane Miller"}' \
+     https://poc-angular-form-validation.herokuapp.com/api/tickets
+```
+
+Returns
+
+```
+HTTP/1.1 204 No Content
+Content-Language: en
+```
+
+&nbsp;
+
+Invalid Ticket with english locale:
+
+```
+curl -s -i -H "Accept-Language: en" \
+     -H "Content-Type: application/json" \
+     -X POST -d '{"id": "-1620", "summary": "I need a new mail account", "description": "foo", "reporter": "Jane Miller"}' \
+     https://poc-angular-form-validation.herokuapp.com/api/tickets
+```
+
+Returns
+
+```
+HTTP/1.1 400 Bad Request
+Content-Language: en
+Content-Type: application/json; charset=utf-8
+
+{"status":400,"message":"invalid ticket","errors":[{"field":"id","type":"pattern","message":"Must begin with 1-5 capital letters followed by a dash, followed by numbers."}]}
+```
+
+----
+
+#### :cyclone: GET /api/tickets/validation_rules
+
+Retuns the validation rules for creating a ticket in the language of requested locale.
+
+With english messages:
+
+```
+curl -s -i -H "Accept-Language: en" https://poc-angular-form-validation.herokuapp.com/api/tickets/validation_rules
+```
+
+```json
+{
+  "id": {
+    "type": "string",
+    "validations": [
+      {
+        "type": "pattern",
+        "message": "Must begin with 1-5 capital letters followed by a dash, followed by numbers",
+        "regex": "^[A-Z]{1,5}[-][0-9]+$"
+      }
+    ]
+  }
+}
+```
+
+With german messages:
+
+```
+curl -s -i -H "Accept-Language: de" https://poc-angular-form-validation.herokuapp.com/api/tickets/validation_rules
+```
+
+```json
+{
+  "id": {
+    "type": "string",
+    "validations": [
+      {
+        "type": "pattern",
+        "message": "Muss mit 1-5 Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen",
+        "regex": "^[A-Z]{1,5}[-][0-9]+$"
+      }
+    ]
+  }
+}
+```
 
 
-##### /api/greetings
+----
+
+#### :cyclone: GET /api/greetings
 
 The Greetings endpoint works with the [`Accept-Language`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language) Request Header. The selected locale is communicated back with the `Content-Language` Response Header.
 
@@ -133,6 +220,8 @@ Content-Type: application/json; charset=utf-8
 
 {"status":200,"message":"Hello Good Day"}
 ```
+
+----
 
 &nbsp;
 
