@@ -10,7 +10,7 @@
     },
     "ticket": {
       "id": {
-        "pattern": "Muss mit {range} Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen."
+        "pattern": "Must begin with {range} capital letters followed by a dash, followed by numbers."
       }
     }
   }

@@ -38,7 +38,7 @@ The Backend will provide:
 
 | Property        | Validation Rule                         |
 |-----------------|-----------------------------------------|
-| **Id**          | Required, Pattern `[A-Z]{1-5}[-][0-9]+` |
+| **Id**          | Required, Pattern `[A-Z]{1,5}[-][0-9]+` |
 | **Summary**     | Required                                |
 | **Description** | -                                       |
 | **Reporter**    | Min-Length 10                           |
