@@ -26,7 +26,7 @@ We want to achieve the following:
 ### Backend Description
 
 
-The Backend will provide: 
+The Backend will provide:
 
  * an endpoint to create *Tickets*.
  * an endpoint to describe the validation rules to the frontend.
@@ -56,47 +56,24 @@ A valid Ticket accepted by the backend would look like this
 }
 ```
 
-The **Validation Rule Information** provided by the backend for `locale=de` would look like so:
+The **Validation Rule Information** provided by the backend for `locale=de` would look like so (shortened):
 
 ```json
 {
   "id": {
     "type": "string",
     "validations": [
-      { 
+      {
         "type": "pattern",
         "message": "Muss mit 1-5 Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen",
-        "regex": "^[A-Z]{1-5}[-][0-9]+$"         
-      }
-    ]
-  },
-  "summary": {
-    "type": "string",
-    "validations": [
-      { 
-        "type": "required",
-        "message": "Muss angegeben sein"       
-      }
-    ]
-  },
-  "description": {
-    "type": "string",
-    "validations": [ ]
-  },  
-  "reporter": {
-    "type": "string",
-    "validations": [
-      { 
-        "type": "min-length",
-        "message": "Muss mindestens 10 Zeichen lang sein",
-        "length": 10       
+        "regex": "^[A-Z]{1,5}[-][0-9]+$"
       }
     ]
   }
 }
 ```
 
-   
+
 &nbsp;
 
 ### API Doc
@@ -201,7 +178,9 @@ yarn test
 **Editor/IDE**
 
 At best use [Visual Studio Code](https://code.visualstudio.com/) since it has great TypeScript support.
-Do not forget to install https://github.com/editorconfig/editorconfig-vscode `ext install EditorConfig`.
+
+ * Do not forget to install https://github.com/editorconfig/editorconfig-vscode `ext install EditorConfig`.
+ * Add to config `{ "files.trimTrailingWhitespace": true }`
 
 &nbsp;
 

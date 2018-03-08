@@ -1,5 +1,17 @@
 {
 	"greetings": {
 		"hello": "Hello Good Day"
-	}
+  },
+  "validation": {
+    "generic": {
+      "minLength": "Must be at least {length} characters long",
+      "maxLentgh": "Cannot be longer than {length} characters.",
+      "required": "Is required."
+    },
+    "ticket": {
+      "id": {
+        "pattern": "Muss mit {range} Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen."
+      }
+    }
+  }
 }

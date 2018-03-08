@@ -1,5 +1,17 @@
 {
 	"greetings": {
 		"hello": "Guten Tag! Wollen Sie das Schnitzel?"
-	}
+  },
+  "validation": {
+    "generic": {
+      "minLength": "Muss mindestens {length} Zeichen lang sein.",
+      "maxLentgh": "Darf maximal {length} Zeichen lang sein.",
+      "required": "Muss angegeben werden."
+    },
+    "ticket": {
+      "id": {
+        "pattern": "Muss mit {range} Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen."
+      }
+    }
+  }
 }

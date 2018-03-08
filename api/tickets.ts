@@ -5,7 +5,8 @@
 import { Router } from 'express';
 import * as path from 'path';
 import { isNullOrUndefined } from 'util';
-import { Ticket, ValidationError } from '../model/api.model';
+import { Ticket, ValidationError, FieldValidationRule,
+  ValidationRulePattern, ValidationRuleMinMaxLength, ValidationRule } from '../model/api.model';
 export const ticketsRouter = Router();
 
 
@@ -13,15 +14,83 @@ export const ticketsRouter = Router();
 //
 // VALIDATION
 //
+const ticketValidationRules: FieldValidationRule[] = [
+  {
+    field: 'id',
+    type: 'string',
+    validations: [
+      {
+        type: 'pattern',
+        message: (i18n) => i18n('validation.ticket.id.pattern', { range: '1-5' }),
+        pattern: '^[A-Z]{1,5}[-][0-9]+$'
+      } as ValidationRulePattern,
+      {
+        type: 'required',
+        message: (i18n) => i18n('validation.generic.required')
+      } as ValidationRule
+    ]
+  },
+  {
+    field: 'summary',
+    type: 'string',
+    validations: [
+      {
+        type: 'required',
+        message: (i18n) => i18n('validation.generic.required')
+      } as ValidationRule,
+      {
+        type: 'maxLength',
+        message: (i18n) => i18n('validation.generic.maxLength', { length: 150 }),
+        length: 150
+      } as ValidationRuleMinMaxLength
+    ]
+  },
+  {
+    field: 'description',
+    type: 'string',
+    validations: [
+      {
+        type: 'maxLength',
+        message: (i18n) => i18n('validation.generic.maxLength', { length: 250 }),
+        length: 250
+      } as ValidationRuleMinMaxLength
+    ]
+  },
+  {
+    field: 'reporter',
+    type: 'string',
+    validations: [
+      {
+        type: 'minLength',
+        message: (i18n) => i18n('validation.generic.minLength', { length: 10 }),
+        length: 10
+      } as ValidationRuleMinMaxLength,
+      {
+        type: 'maxLength',
+        message: (i18n) => i18n('validation.generic.maxLength', { length: 250 }),
+        length: 250
+      } as ValidationRuleMinMaxLength
+    ]
+  }
+];
+
+
 const validateCreateTicket = (ticket: Ticket, i18n: Function): ValidationError[] => {
   const errors: ValidationError[] = [];
-  if (!ticket.hasOwnProperty('id') || isNullOrUndefined(ticket.id)) {
-    errors.push({ 
-      field: 'id',
-      type: 'required',
-      i18n: 'validation.ticket.id.required',
-      message: i18n('validation.ticket.id.required')
-    })
+
+  for (let fieldValidationRule of ticketValidationRules) {
+    for (let validationRule of fieldValidationRule.validations) {
+      if (validationRule.type === 'pattern') {
+        const patternRule = validationRule as ValidationRulePattern;
+        const regex = new RegExp(patternRule.pattern);
+        if (!regex.test(ticket[fieldValidationRule.field])) {
+          errors.push(new ValidationError(
+            fieldValidationRule.field,
+            validationRule.type,
+            validationRule.message(i18n)));
+        }
+      }
+    }
   }
   return errors;
 }
@@ -44,7 +113,7 @@ ticketsRouter.post('/', (req, res, next) => {
   } else {
     res.status(204).json({
       status: 200,
-      message: 'ok' 
+      message: 'ok'
     });
   }
 });
