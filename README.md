@@ -107,6 +107,14 @@ The **Validation Rule Information** provided by the backend for `locale=de` woul
 TBD
 
 
+&nbsp;
+
+### Deployment
+
+Deployed to heroku on master-branch Push
+
+ * https://poc-angular-form-validation.herokuapp.com/
+
 
 &nbsp;
 
