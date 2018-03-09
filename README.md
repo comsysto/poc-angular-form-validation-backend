@@ -16,9 +16,13 @@ We want to achieve the following:
  * Our Backend should be usable via a Frontend like Angular.
  * Our Backend should be usable by other Services.
  * For both cases we need i18n error messages and an easy way to describe Form Validations.
- * We want separation of concerns for i18n - meaning: Backend translates backend stuff, Frontend translates frontend stuff.
+ * We want separation of concerns for i18n - meaning:
+   * Backend translates backend messages.
+   * Frontend translates frontend messages.
  * We want to support translation platforms like https://phraseapp.com/ or https://crowdin.com/.
  * Use https://formatjs.io/ compatible Intl implementation e.g. [Intl MessageFormat](https://github.com/yahoo/intl-messageformat)
+   * Cool thing is that [phraseapp supports **nested JSON and Intl/FormatJS pluralization**](https://phraseapp.com/docs/guides/formats/react-intl-nested-json/) like:
+   * `'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.}}'`
 
 
 &nbsp;
