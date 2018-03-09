@@ -10,4 +10,3 @@ generated
 node_modules
 *.log
 build/
-yarn.lock
