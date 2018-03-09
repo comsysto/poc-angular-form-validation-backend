@@ -1,11 +1,11 @@
 [![](https://comsysto.github.io/poc-angular-form-validation-backend/doc/banner.svg)](https://github.com/comsysto/poc-angular-form-validation-backend)
 
-# poc-angular-form-validation-backend
+# Backend
 
 Proof of Concept of ServerSide Form Validation with i18n and Angular Frontend.
 
- * :sparkles: [poc-angular-form-validation-frontend](https://github.com/comsysto/poc-angular-form-validation-frontend)
- * :sparkles: **poc-angular-form-validation-backend**
+ * :sparkles: [Frontend](https://github.com/comsysto/poc-angular-form-validation-frontend)
+ * :sparkles: **Backend**
 
 &nbsp;
 
