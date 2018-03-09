@@ -62,6 +62,10 @@ const ticketValidationRules: FieldValidationRule[] = [
     type: 'string',
     validations: [
       {
+        type: 'required',
+        message: (i18n) => i18n('validation.generic.required')
+      } as ValidationRule,
+      {
         type: 'minLength',
         message: (i18n) => i18n('validation.generic.minLength', { length: 3 }),
         length: 3
