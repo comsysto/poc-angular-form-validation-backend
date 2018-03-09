@@ -9,10 +9,11 @@
     a { color: #555; text-decoration: none; }
     a:hover { color: #555; text-decoration: underline; }
     .container { max-width: 900px; width:900px; }
+    li { margin-bottom: 10px; }
+    h2 {color: #1080C1; text-transform: uppercase; font-size:35px; font-weight:300; }
   </style>
   <!-- SWAGGER UI -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui.css" type="text/css">
+  <link rel="stylesheet" href="https://comsysto.github.io/poc-angular-form-validation-backend/swagger-ui/3.12.0/swagger-ui.css" type="text/css">
   <style>.topbar, .scheme-container, .information-container { display:none !important }</style>
 </head>
 <body>
@@ -20,8 +21,11 @@
     <a href="https://github.com/comsysto/poc-angular-form-validation-backend" target="_blank">
       <img src="https://comsysto.github.io/poc-angular-form-validation-backend/doc/banner.svg" style="width:100%">
     </a>
-    <h3>Backend</h3>
-    <p>See Frontend: <a href="https://comsysto.github.io/poc-angular-form-validation-frontend/">https://comsysto.github.io/poc-angular-form-validation-frontend/</a></p>
+    <h2>Backend</h2>
+    <ul>
+      <li>Go to <a href="https://comsysto.github.io/poc-angular-form-validation-frontend/">Frontend on comsysto.github.io/poc-angular-form-validation-frontend/</a></li>
+      <li>Go to <a href="https://github.com/comsysto/poc-angular-form-validation-backend" target="_blank">Backend Repository on GitHub</a></li>
+    </ul>
 
     <p>&nbsp;</p>
     <h3>API DOC</h3>
@@ -29,14 +33,15 @@
     <div id="swagger-ui"></div>
   </div>
   <!-- SWAGGER UI -->
-  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui-bundle.js"> </script>
-  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui-standalone-preset.js"> </script>
+  <script src="https://comsysto.github.io/poc-angular-form-validation-backend/swagger-ui/3.12.0/swagger-ui-bundle.js"> </script>
+  <script src="https://comsysto.github.io/poc-angular-form-validation-backend/swagger-ui/3.12.0/swagger-ui-standalone-preset.js"> </script>
   <script>
   window.onload = function() {
 
     // Build a system
     const ui = SwaggerUIBundle({
       url: "/v2/swagger.json",
+      validatorUrl : null,
       dom_id: '#swagger-ui',
       deepLinking: true,
       presets: [
