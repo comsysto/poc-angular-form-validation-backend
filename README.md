@@ -4,7 +4,7 @@
 
 Proof of Concept of ServerSide Form Validation with i18n and Angular Frontend.
 
- * :sparkles: [Frontend](https://github.com/comsysto/poc-angular-form-validation-frontend)
+ * :sparkles: [Frontend](https://github.com/comsysto/poc-angular-form-validation-frontend) - [comsysto.github.io/poc-angular-form-validation-frontend/](https://comsysto.github.io/poc-angular-form-validation-frontend/) - [poc-angular-form-validation.herokuapp.com/](https://poc-angular-form-validation.herokuapp.com/)
  * :sparkles: **Backend**
 
 &nbsp;
