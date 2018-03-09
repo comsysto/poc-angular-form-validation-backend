@@ -39,11 +39,130 @@ paths:
           description: Ok
           schema:
             $ref: '#/definitions/Greeting'
+  /api/tickets/validation_rules:
+    get:
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: Accept-Language
+          required: true
+          default: de,
+          enum:
+            - en
+            - de
+          type: string
+      tags:
+        - tickets
+      summary: get 18n aware validation rules for create ticket
+      description: ''
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ValidationRules'
+  /api/tickets:
+    post:
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: Accept-Language
+          required: true
+          default: de,
+          enum:
+            - en
+            - de
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema :
+            $ref : "#/definitions/CreateTicket"
+      tags:
+        - tickets
+      summary: create a ticket
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: Created
+        '400':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/RestError'
 definitions:
   Greeting:
     type: object
     properties:
       status:
         type: number
+      message:
+        type: string
+  ValidationRules:
+    type: array
+    items:
+      $ref: '#/definitions/ValidationRule'
+  ValidationRule:
+    type: object
+    properties:
+      field:
+        type: string
+      type:
+        type: string
+      validations:
+        type: array
+        items:
+          $ref: '#/definitions/ValidationRuleItem'
+  ValidationRuleItem:
+    type: object
+    required:
+      - type
+      - message
+    properties:
+      type:
+        type: string
+      message:
+        type: string
+      pattern:
+        type: string
+      length:
+        type: number
+  CreateTicket:
+    type: object
+    required:
+      - id
+      - summary
+      - reporter
+    properties:
+      id:
+        type: string
+      summary:
+        type: string
+      description:
+        type: string
+      reporter:
+        type: string
+  RestError:
+    type: object
+    properties:
+      status:
+        type: number
+      message:
+        type: string
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/ValidationError'
+  ValidationError:
+    type: object
+    properties:
+      field:
+        type: string
+      type:
+        type: string
       message:
         type: string
