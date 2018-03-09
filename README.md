@@ -1,4 +1,4 @@
-[![](https://comsysto.github.io/poc-angular-form-validation-backend/doc/banner.svg)](https://github.com/comsysto/poc-angular-form-validation-backend)
+[![](https://comsysto.github.io/poc-angular-form-validation-backend/doc/banner.svg?v2)](https://github.com/comsysto/poc-angular-form-validation-backend)
 
 # Backend
 
