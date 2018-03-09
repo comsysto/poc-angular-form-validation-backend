@@ -262,6 +262,10 @@ Now server is running on http://localhost:5000/
 yarn test
 ```
 
+![](https://comsysto.github.io/poc-angular-form-validation-backend/doc/api-tests-1.png)
+
+![](https://comsysto.github.io/poc-angular-form-validation-backend/doc/api-tests-2.png)
+
 &nbsp;
 
 **Editor/IDE**
