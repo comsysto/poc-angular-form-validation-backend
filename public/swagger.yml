@@ -1,0 +1,49 @@
+swagger: '2.0'
+info:
+  description: PoC Form Validation
+  version: 1.0.0
+  title: PoC Form Validation Backend Api
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: MIT
+    url: 'https://github.com/comsysto/poc-angular-form-validation-backend/blob/master/LICENSE'
+host: poc-angular-form-validation.herokuapp.com
+basePath: /
+tags:
+  - name: greetings
+    description: Greetings Endpoints
+  - name: tickets
+    description: Tickets Endpoints
+paths:
+  /api/greetings:
+    get:
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: Accept-Language
+          required: true
+          default: de,
+          enum:
+            - en
+            - de
+          type: string
+      tags:
+        - greetings
+      summary: i18n Greetings
+      description: ''
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Greeting'
+definitions:
+  Greeting:
+    type: object
+    properties:
+      status:
+        type: number
+      message:
+        type: string

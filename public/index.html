@@ -10,6 +10,10 @@
     a:hover { color: #555; text-decoration: underline; }
     .container { max-width: 900px; width:900px; }
   </style>
+  <!-- SWAGGER UI -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui.css" type="text/css">
+  <style>.topbar, .scheme-container, .information-container { display:none !important }</style>
 </head>
 <body>
   <div class="container">
@@ -18,6 +22,35 @@
     </a>
     <h3>Backend</h3>
     <p>See Frontend: <a href="https://comsysto.github.io/poc-angular-form-validation-frontend/">https://comsysto.github.io/poc-angular-form-validation-frontend/</a></p>
+
+    <p>&nbsp;</p>
+    <h3>API DOC</h3>
+
+    <div id="swagger-ui"></div>
   </div>
+  <!-- SWAGGER UI -->
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui-bundle.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.12.0/swagger-ui-standalone-preset.js"> </script>
+  <script>
+  window.onload = function() {
+
+    // Build a system
+    const ui = SwaggerUIBundle({
+      url: "/v2/swagger.json",
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl
+      ],
+      layout: "StandaloneLayout"
+    })
+
+    window.ui = ui
+  }
+  </script>
 </body>
 </html>

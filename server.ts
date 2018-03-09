@@ -34,6 +34,9 @@ app.get('/', (req, res, next) => {
 app.get('/favicon.png', (req, res, next) => {
   res.sendFile(path.resolve(__dirname, './public/favicon.png'));
 });
+app.get('/v2/swagger.json', (req, res, next) => {
+  res.sendFile(path.resolve(__dirname, './public/swagger.json'));
+});
 
 // Enable Errorhandler (must be last!)
 app.use(errorhandler());
