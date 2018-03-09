@@ -9,6 +9,7 @@
       "required": "Muss angegeben werden."
     },
     "ticket": {
+      "invalid": "Ungültiges Ticket",
       "id": {
         "pattern": "Muss mit {range} Großbuchstaben beginnen, gefolgt von Bindestrich, gefolgt von Zahlen."
       }

@@ -9,6 +9,7 @@
       "required": "Is required."
     },
     "ticket": {
+      "invalid": "Invalid Ticket",
       "id": {
         "pattern": "Must begin with {range} capital letters followed by a dash, followed by numbers."
       }

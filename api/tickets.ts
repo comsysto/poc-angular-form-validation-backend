@@ -7,6 +7,7 @@ import * as path from 'path';
 import { isNullOrUndefined } from 'util';
 import { Ticket, ValidationError, FieldValidationRule,
   ValidationRulePattern, ValidationRuleMinMaxLength, ValidationRule } from '../model/api.model';
+import { I18nAwareRequest } from '../i18n/i18n-handler';
 export const ticketsRouter = Router();
 
 
@@ -122,7 +123,7 @@ const validateCreateTicket = (ticket: Ticket, i18n: Function): ValidationError[]
 //
 // ROUTES /api/tickets
 //
-ticketsRouter.get('/validation_rules', (req, res, next) => {
+ticketsRouter.get('/validation_rules', (req: I18nAwareRequest, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(
     ticketValidationRules.map(r => {
@@ -137,12 +138,12 @@ ticketsRouter.get('/validation_rules', (req, res, next) => {
 });
 
 
-ticketsRouter.post('/', (req, res, next) => {
+ticketsRouter.post('/', (req: I18nAwareRequest, res, next) => {
   const errors = validateCreateTicket(req.body, req.i18n);
   if (errors.length > 0) {
     res.status(400).json({
       status: 400,
-      message: 'invalid ticket',
+      message: req.i18n('validation.ticket.invalid'),
       errors: errors,
     });
   } else {
