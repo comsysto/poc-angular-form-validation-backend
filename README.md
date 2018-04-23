@@ -279,8 +279,10 @@ At best use [Visual Studio Code](https://code.visualstudio.com/) since it has gr
  * Do not forget to install https://github.com/editorconfig/editorconfig-vscode `ext install EditorConfig`.
  * Add to config `{ "files.trimTrailingWhitespace": true }`
 
+
 &nbsp;
 
 ### License
 
 [MIT](./LICENSE) © [Bernhard Grünewaldt](https://github.com/clouless)
+
