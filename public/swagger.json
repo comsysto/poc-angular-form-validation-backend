@@ -32,7 +32,7 @@
             "in": "header",
             "description": "Accept-Language",
             "required": true,
-            "default": "de,",
+            "default": "de",
             "enum": [
               "en",
               "de"
@@ -66,7 +66,7 @@
             "in": "header",
             "description": "Accept-Language",
             "required": true,
-            "default": "de,",
+            "default": "de",
             "enum": [
               "en",
               "de"
@@ -100,7 +100,7 @@
             "in": "header",
             "description": "Accept-Language",
             "required": true,
-            "default": "de,",
+            "default": "de",
             "enum": [
               "en",
               "de"
