@@ -284,5 +284,5 @@ At best use [Visual Studio Code](https://code.visualstudio.com/) since it has gr
 
 ### License
 
-[MIT](./LICENSE) © [Bernhard Grünewaldt](https://github.com/clouless)
+[MIT](./LICENSE)
 
